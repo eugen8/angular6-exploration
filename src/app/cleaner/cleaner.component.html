@@ -1,0 +1,30 @@
+<div class="listOfCleaners">
+  <ul>
+    <li>{{Joe.id}} - {{Joe.name}}</li>
+    <li>{{Jim.id}} - {{Jim.name}}</li>
+    <li>{{Kerry.id}} - {{Kerry.name}}</li>
+    <li>{{Kim.id}} - {{Kim.name}}</li>
+  </ul>
+
+</div>
+
+<div>
+ <ul class="cleanersList ">
+    
+  <li  [class.selected]="cl===selectedCleaner" (click)="onSelect(cl, 'click')"  
+    *ngFor="let cl of otherCleaners"><span class="badge">{{cl.id}}</span>
+    {{cl.name}}
+  </li>
+
+ </ul>
+
+  <select [(ngModel)]="selectedCleaner" #s (change)="onSelectBoxChange(selectedCleaner, s.value)" >
+    <option [ngValue]=undefined>--Select--</option>
+    <option *ngFor="let cl of otherCleaners; index as in" [ngValue]="cl"   >{{in}} / {{cl.id}} - {{cl.name | uppercase}}</option>
+  </select>
+<p>selectedCleaner is {{selectedCleaner}} </p>
+  <!-- [ngValue]="[cl, in]"  would also work-->
+
+
+</div>
+<app-cleaner-detail [cleaner]="selectedCleaner"></app-cleaner-detail>
