@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$head-font : 'Nunito', sans-serif;
+$font-stack: Helvetica, sans-serif;
+$primary-color: rgb(146, 201, 94);
+
+h1{
+  color:$primary-color;
+  font-family: Helvetica, $head-font;
+}
